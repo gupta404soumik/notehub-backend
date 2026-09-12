@@ -23,8 +23,13 @@ app.use(express.static(path.join(__dirname, '../')));
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/repositories', require('./routes/RepositoryRoutes'));
+app.use('/api/repositories/:repoId/issues', require('./routes/issueRoutes'));
 app.use('/api/repositories/:repoId/documents', require('./routes/documentRoutes'));
 app.use('/api/comments', require('./routes/commentRoutes'));
+app.use('/api/search', require('./routes/searchRoutes'));
+app.use('/api/repositories/:repoId/pulls', require('./routes/pullRequestRoutes'));
+app.use('/api/repositories/:repoId/fork', require('./routes/pullRequestRoutes'));
+app.use('/api/users', require('./routes/userRoutes'));
 
 // Test route
 app.get('/', (req, res) => {
